@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.application'
+}
+
+// On GitHub Actions every build gets a higher version code, so new APKs install over old ones.
+def ciBuild = System.getenv('GITHUB_RUN_NUMBER')
+
+android {
+    namespace 'bn.gopadian.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'bn.gopadian.app'
+        minSdk 24
+        targetSdk 34
+        versionCode ciBuild ? ciBuild.toInteger() : 1
+        versionName ciBuild ? "1.0.${ciBuild}" : '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

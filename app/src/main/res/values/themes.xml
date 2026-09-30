@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GoPadian" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/gp_night</item>
+        <item name="android:statusBarColor">@color/gp_deep</item>
+        <item name="android:navigationBarColor">@color/gp_night</item>
+    </style>
+</resources>
